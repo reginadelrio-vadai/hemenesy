@@ -3,25 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #064E3B;
+  --color-primary-light: #0D7353;
+  --color-accent: #D4AF37;
+  --color-accent-light: #F5E6A3;
+  --color-bg-dark: #0A0A0A;
+  --color-bg-medium: #1A1A1A;
+  --color-bg-light: #F5F5F0;
+  --color-text-primary: #FAFAFA;
+  --color-text-secondary: #A3A3A3;
+  --color-text-dark: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-border-accent: #D4AF37;
+  --section-padding: 120px;
+  --section-padding-mobile: 60px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Animated elements — hint GPU compositing */
+[data-gsap], .gsap-animated {
+  will-change: transform, opacity;
 }
