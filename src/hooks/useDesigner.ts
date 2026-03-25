@@ -140,6 +140,7 @@ export function useDesigner() {
     } catch {
       setState((p) => ({ ...p, isGenerating: false, error: "Error de conexión." }));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.jewelryType, state.designStyle, state.metal, state.emeraldType, state.complementaryStones, state.additionalNotes, refetchProfile]);
 
   const regenerate = useCallback(() => submitGeneration(), [submitGeneration]);

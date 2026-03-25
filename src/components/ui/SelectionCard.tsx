@@ -10,7 +10,7 @@ interface SelectionCardProps {
   onClick: () => void;
 }
 
-export function SelectionCard({ id, label, image, selected, disabled, onClick }: SelectionCardProps) {
+export function SelectionCard({ label, image, selected, disabled, onClick }: SelectionCardProps) {
   if (image) {
     return (
       <button

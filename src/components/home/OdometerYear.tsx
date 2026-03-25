@@ -69,8 +69,7 @@ export function OdometerYear({ year }: Props) {
     const rotateDigit = (
       i: number,
       newNum: number,
-      duration: number,
-      isLast: boolean
+      duration: number
     ): gsap.core.Timeline => {
       const current = currentRefs[i].current!;
       const next = nextRefs[i].current!;
@@ -101,7 +100,7 @@ export function OdometerYear({ year }: Props) {
       steps.forEach((num, idx) => {
         const isLast = idx === steps.length - 1;
         const dur = isLast ? 0.7 : 0.22;
-        masterTl.add(rotateDigit(i, num, dur, isLast));
+        masterTl.add(rotateDigit(i, num, dur));
       });
 
       lastMasterTl = masterTl;

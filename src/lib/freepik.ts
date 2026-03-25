@@ -1,3 +1,5 @@
+import { SupabaseClient } from "@supabase/supabase-js";
+
 const FREEPIK_API_KEY = process.env.FREEPIK_API_KEY!;
 const BASE_URL = "https://api.freepik.com/v1/ai/mystic";
 
@@ -64,7 +66,8 @@ export async function persistImage(
   tempUrl: string,
   userId: string,
   designId: string,
-  admin: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  admin: SupabaseClient<any, any, any>
 ): Promise<string> {
   const res = await fetch(tempUrl);
   if (!res.ok) throw new Error("Download failed");
