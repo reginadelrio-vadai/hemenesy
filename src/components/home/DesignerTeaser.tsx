@@ -34,14 +34,12 @@ export function DesignerTeaser() {
             esmeralda, y en segundos tendrás tu visión hecha imagen.
           </p>
 
-          {!loading && (
-            <Link
-              href={ctaHref}
-              className="inline-block font-body text-sm tracking-widest uppercase bg-brand-accent text-surface-dark px-10 py-4 hover:brightness-110 transition-all duration-300"
-            >
-              {ctaLabel}
-            </Link>
-          )}
+          <Link
+            href={!loading && user ? "/designer" : "/auth/login"}
+            className="inline-block font-body text-sm tracking-widest uppercase bg-brand-accent text-surface-dark px-10 py-4 hover:brightness-110 transition-all duration-300"
+          >
+            {!loading && user ? "Comenzar diseño" : "Crear cuenta gratis"}
+          </Link>
         </div>
 
         <div
