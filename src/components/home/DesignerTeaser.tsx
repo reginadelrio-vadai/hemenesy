@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { SafeImage } from "@/components/ui/SafeImage";
-import { PLACEHOLDERS } from "@/utils/placeholders";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { SLIDE_LEFT, SLIDE_RIGHT } from "@/utils/animations";
 import { useAuth } from "@/components/layout/AuthProvider";
@@ -45,7 +44,7 @@ export function DesignerTeaser() {
           className="order-1 lg:order-2 relative aspect-square w-full max-w-md mx-auto lg:max-w-none overflow-hidden"
         >
           <SafeImage
-            src={PLACEHOLDERS.jewelry2}
+            src="/images/designer.png"
             alt="Diseñador de joyas con IA — Hemenesy"
             fill
             className="object-cover"
