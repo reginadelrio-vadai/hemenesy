@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SafeImage } from "@/components/ui/SafeImage";
-import { PLACEHOLDERS } from "@/utils/placeholders";
 import { LUXURY } from "@/utils/animations";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,7 +87,7 @@ export function HeroSection() {
       {/* Parallax bg — scale-110 evita bordes blancos en el extremo del parallax */}
       <div ref={bgRef} className="absolute inset-0 scale-110">
         <SafeImage
-          src={PLACEHOLDERS.hero}
+          src="/images/hero.png"
           alt="Esmeralda colombiana de primera calidad seleccionada por Hemenesy"
           fill
           className="object-cover"
