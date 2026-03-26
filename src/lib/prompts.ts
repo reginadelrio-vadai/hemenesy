@@ -16,7 +16,7 @@ const M: Record<string, string> = {
   oro_amarillo: "18K yellow gold",
   oro_blanco: "18K white gold",
   oro_rosa: "18K rose gold",
-  platino: "platinum",
+  plata: "sterling silver",
 };
 const E: Record<string, string> = {
   corte_esmeralda: "emerald-cut Colombian emerald",
