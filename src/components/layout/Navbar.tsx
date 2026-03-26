@@ -100,33 +100,29 @@ export function Navbar() {
               Diseñar
             </button>
 
-            {!loading && (
-              <>
-                {user ? (
-                  <div className="flex items-center gap-3">
-                    <Link
-                      href="/dashboard"
-                      className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
-                    >
-                      Mi cuenta
-                    </Link>
-                    <span className="text-content-secondary/30 text-xs">|</span>
-                    <button
-                      onClick={handleSignOut}
-                      className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
-                    >
-                      Salir
-                    </button>
-                  </div>
-                ) : (
-                  <Link
-                    href="/auth/login"
-                    className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
-                  >
-                    Iniciar sesión
-                  </Link>
-                )}
-              </>
+            {!loading && user ? (
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/dashboard"
+                  className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
+                >
+                  Mi cuenta
+                </Link>
+                <span className="text-content-secondary/30 text-xs">|</span>
+                <button
+                  onClick={handleSignOut}
+                  className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
+                >
+                  Salir
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors duration-300"
+              >
+                Iniciar sesión
+              </Link>
             )}
           </div>
 
@@ -175,34 +171,30 @@ export function Navbar() {
             >
               Diseñar
             </button>
-            {!loading && (
+            {!loading && user ? (
               <>
-                {user ? (
-                  <>
-                    <Link
-                      href="/dashboard"
-                      onClick={() => setMenuOpen(false)}
-                      className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
-                    >
-                      Mi cuenta
-                    </Link>
-                    <button
-                      onClick={handleSignOut}
-                      className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
-                    >
-                      Cerrar sesión
-                    </button>
-                  </>
-                ) : (
-                  <Link
-                    href="/auth/login"
-                    onClick={() => setMenuOpen(false)}
-                    className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
-                  >
-                    Iniciar sesión
-                  </Link>
-                )}
+                <Link
+                  href="/dashboard"
+                  onClick={() => setMenuOpen(false)}
+                  className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
+                >
+                  Mi cuenta
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
+                >
+                  Cerrar sesión
+                </button>
               </>
+            ) : (
+              <Link
+                href="/auth/login"
+                onClick={() => setMenuOpen(false)}
+                className="font-body text-base tracking-widest uppercase text-content-secondary hover:text-content-primary transition-colors"
+              >
+                Iniciar sesión
+              </Link>
             )}
           </div>
         </div>
