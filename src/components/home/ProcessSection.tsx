@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { FADE_UP, STAGGER, LUXURY } from "@/utils/animations";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,31 +11,37 @@ const STAGES = [
     num: "01",
     title: "Origen en la Mina",
     desc: "Todo comienza en las montañas de Colombia, donde nacen algunas de las esmeraldas más extraordinarias del mundo. Allí inicia el recorrido de una gema marcada por su origen, rareza y carácter irrepetible.",
+    img: "/images/01.png",
   },
   {
     num: "02",
     title: "Selección de la Esmeralda",
     desc: "Cada piedra es cuidadosamente evaluada por su color, pureza, transparencia y potencial. Solo aquellas que expresan verdadera belleza y singularidad continúan el camino hacia una creación excepcional.",
+    img: "/images/02.png",
   },
   {
     num: "03",
     title: "Talla y Revelación",
     desc: "La esmeralda en bruto se trabaja con precisión para revelar su luz, profundidad y equilibrio. La talla respeta la esencia natural de la gema y realza todo aquello que la hace única.",
+    img: "/images/03.png",
   },
   {
     num: "04",
     title: "Certificación y Valoración",
     desc: "Antes de convertirse en joya, la esmeralda es examinada y documentada para validar su autenticidad, sus características y su valor. Este proceso resguarda su procedencia y confirma su distinción.",
+    img: "/images/04.png",
   },
   {
     num: "05",
     title: "Creación de la Joya",
     desc: "A partir de la gema elegida, concebimos una pieza a medida que une diseño, intención y oficio artesanal. Oro, platino y esmeralda se encuentran en una obra creada exclusivamente para su portador.",
+    img: "/images/05.png",
   },
   {
     num: "06",
     title: "Entrega al Cliente",
     desc: "La joya llega a tus manos como una creación única: una pieza de alta joyería concebida para ti, donde se unen origen, arte y significado en una forma destinada a permanecer.",
+    img: "/images/06.png",
   },
 ];
 
@@ -61,10 +68,27 @@ function StageContent({
   );
 }
 
+function StageImage({ src, alt, active }: { src: string; alt: string; active: boolean }) {
+  return (
+    <div
+      className="relative aspect-[4/3] w-full max-w-[300px] md:max-w-[400px] rounded-lg overflow-hidden transition-all duration-700 ease-in-out"
+      style={{
+        opacity: active ? 1 : 0.4,
+        filter: active ? "grayscale(0%)" : "grayscale(100%)",
+        transform: active ? "scale(1.05)" : "scale(1)",
+      }}
+    >
+      <SafeImage src={src} alt={alt} fill className="object-cover" sizes="(max-width: 768px) 90vw, 400px" />
+    </div>
+  );
+}
+
 export function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -116,7 +140,7 @@ export function ProcessSection() {
         });
       }
 
-      // Nodes: gray → emerald green on enter
+      // Nodes: gray → gold on enter
       gsap.utils
         .toArray<HTMLElement>("[data-step-node]", sectionRef.current!)
         .forEach((node) => {
@@ -138,6 +162,17 @@ export function ProcessSection() {
               }),
           });
         });
+
+      // Active step detection
+      stepRefs.current.forEach((el, i) => {
+        if (!el) return;
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top center",
+          onEnter: () => setActiveStep(i),
+          onEnterBack: () => setActiveStep(Math.max(0, i - 1)),
+        });
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -173,15 +208,22 @@ export function ProcessSection() {
 
           {STAGES.map((stage, i) => {
             const isLeft = i % 2 === 0;
+            const active = activeStep === i;
             return (
-              <div key={stage.num} className="relative mb-12 lg:mb-20">
+              <div
+                key={stage.num}
+                ref={(el) => { stepRefs.current[i] = el; }}
+                className="relative mb-12 lg:mb-20"
+              >
                 {/* ── Mobile ── */}
-                <div className="flex items-start gap-4 pl-9 lg:hidden">
+                <div className="flex flex-col gap-4 pl-9 lg:hidden">
                   <div
                     data-step-node
                     className="absolute left-[15px] top-1 w-3 h-3 rounded-full border-2 z-10 -translate-x-1/2"
                     style={{ borderColor: "#2A2A2A", backgroundColor: "transparent" }}
                   />
+                  {/* Image above text on mobile */}
+                  <StageImage src={stage.img} alt={stage.title} active={active} />
                   <div data-step-card="mobile">
                     <StageContent stage={stage} align="left" />
                   </div>
@@ -189,12 +231,14 @@ export function ProcessSection() {
 
                 {/* ── Desktop: 3-col grid ── */}
                 <div className="hidden lg:grid lg:grid-cols-[1fr_60px_1fr] lg:items-center">
-                  {/* Left column */}
-                  <div className={isLeft ? "flex justify-end pr-10" : ""}>
-                    {isLeft && (
+                  {/* Left column — text for odd steps, image for even steps */}
+                  <div className={isLeft ? "flex justify-end pr-10" : "flex justify-end pr-10"}>
+                    {isLeft ? (
                       <div data-step-card="desktop" className="max-w-xs">
                         <StageContent stage={stage} align="right" />
                       </div>
+                    ) : (
+                      <StageImage src={stage.img} alt={stage.title} active={active} />
                     )}
                   </div>
 
@@ -207,9 +251,11 @@ export function ProcessSection() {
                     />
                   </div>
 
-                  {/* Right column */}
-                  <div className={!isLeft ? "pl-10" : ""}>
-                    {!isLeft && (
+                  {/* Right column — image for odd steps, text for even steps */}
+                  <div className={!isLeft ? "pl-10" : "pl-10"}>
+                    {isLeft ? (
+                      <StageImage src={stage.img} alt={stage.title} active={active} />
+                    ) : (
                       <div data-step-card="desktop" className="max-w-xs">
                         <StageContent stage={stage} align="left" />
                       </div>
