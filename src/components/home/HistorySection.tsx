@@ -148,26 +148,26 @@ function MilestoneLayoutC({
         </p>
       </div>
 
-      <div className="relative flex flex-col items-center order-1 lg:order-2 py-12 lg:py-20 mr-auto pr-16">
-        <div ref={photo1Ref} className="relative w-full max-w-[350px] aspect-[3/4] z-0 shadow-2xl border-2 border-white/30">
+      <div className="relative w-full max-w-[500px] mx-auto order-1 lg:order-2 py-12 lg:py-20" style={{ minHeight: "500px" }}>
+        <div ref={photo1Ref} className="relative w-[65%] z-0 shadow-2xl border-2 border-white/30">
           <SafeImage
             src={milestone.photos[0]}
             alt={milestone.photoAlts[0]}
-            fill
-            className="object-cover"
-            sizes="350px"
+            width={400}
+            height={300}
+            style={{ objectFit: "cover", width: "100%", height: "auto" }}
           />
         </div>
         <div
           ref={photo2Ref}
-          className="relative w-full max-w-[350px] aspect-[3/4] -mt-[25%] self-end z-10 shadow-2xl border-2 border-white/30"
+          className="relative w-[65%] -mt-[80px] ml-auto z-10 shadow-2xl border-2 border-white/30"
         >
           <SafeImage
             src={milestone.photos[1]}
             alt={milestone.photoAlts[1]}
-            fill
-            className="object-cover"
-            sizes="350px"
+            width={400}
+            height={300}
+            style={{ objectFit: "cover", width: "100%", height: "auto" }}
           />
         </div>
       </div>
