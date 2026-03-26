@@ -1,4 +1,4 @@
-async function send(url: string, payload: Record<string, any>) {
+async function send(url: string, payload: Record<string, unknown>) {
   try {
     await fetch(url, {
       method: "POST",
@@ -10,11 +10,11 @@ async function send(url: string, payload: Record<string, any>) {
   }
 }
 
-export const webhookDesignGenerated = (d: Record<string, any>) =>
+export const webhookDesignGenerated = (d: Record<string, unknown>) =>
   send(process.env.N8N_WEBHOOK_DESIGN_GENERATED!, d);
 
-export const webhookQuoteRequested = (d: Record<string, any>) =>
+export const webhookQuoteRequested = (d: Record<string, unknown>) =>
   send(process.env.N8N_WEBHOOK_QUOTE_REQUESTED!, d);
 
-export const webhookNewContact = (d: Record<string, any>) =>
+export const webhookNewContact = (d: Record<string, unknown>) =>
   send(process.env.N8N_WEBHOOK_NEW_CONTACT!, d);

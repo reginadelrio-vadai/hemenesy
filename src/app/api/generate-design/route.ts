@@ -41,18 +41,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Parámetros inválidos" }, { status: 400 });
     }
 
-    const prompt = buildPrompt({ jewelryType, designStyle, metal, emeraldType, complementaryStones, engraving, additionalNotes });
+    const prompt = buildPrompt({ jewelryType, designStyle, metal, emeraldType, complementaryStones, additionalNotes });
 
     let tempUrl: string;
     try {
       tempUrl = await generateImage(prompt);
-    } catch (err: any) {
+    } catch (err: unknown) {
       await supabaseAdmin
         .from("user_profiles")
         .update({ generation_count_today: cnt - 1 })
         .eq("id", user.id);
       return NextResponse.json(
-        { error: err.message?.includes("TIMEOUT") ? "La generación tardó demasiado." : "Error al generar." },
+        { error: (err instanceof Error && err.message?.includes("TIMEOUT")) ? "La generación tardó demasiado." : "Error al generar." },
         { status: 502 }
       );
     }
