@@ -6,18 +6,18 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { FADE_UP } from "@/utils/animations";
 
 const GALLERY = [
-  { id: "anillo-1", src: "/images/anillo-1.jpg", alt: "Anillo de Oro Amarillo con Piedras Verdes", title: "Anillo de Oro Amarillo con Piedras Verdes", desc: "" },
-  { id: "anillo-2", src: "/images/anillo-2.jpg", alt: "Anillo de Plata con Piedra Verde y Diamantes", title: "Anillo de Plata con Piedra Verde y Diamantes", desc: "" },
-  { id: "anillo-3", src: "/images/anillo-3.jpg", alt: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", title: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", desc: "" },
-  { id: "anillo-4", src: "/images/anillo-4.jpg", alt: "Anillo de Oro Amarillo con Piedras Verdes Variadas", title: "Anillo de Oro Amarillo con Piedras Verdes Variadas", desc: "" },
-  { id: "aretes-1", src: "/images/aretes-1.jpg", alt: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", title: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", desc: "" },
-  { id: "aretes-2", src: "/images/aretes-2.jpg", alt: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", title: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", desc: "" },
-  { id: "collar-1", src: "/images/collar-1.jpg", alt: "Cruz de Esmeralda Natural en Oro Amarillo", title: "Cruz de Esmeralda Natural en Oro Amarillo", desc: "" },
-  { id: "collar-2", src: "/images/collar-2.jpg", alt: "Cruz de Esmeraldas Naturales en Oro Amarillo", title: "Cruz de Esmeraldas Naturales en Oro Amarillo", desc: "" },
-  { id: "piedra-1", src: "/images/piedra-1.jpg", alt: "Cristal Natural de Tourmalina Verde", title: "Cristal Natural de Tourmalina Verde", desc: "" },
-  { id: "piedra-2", src: "/images/piedra-2.jpg", alt: "Esmeralda Natural de 0.92 ct", title: "Esmeralda Natural de 0.92 ct", desc: "" },
-  { id: "piedra-3", src: "/images/piedra-3.jpg", alt: "Esmeralda Natural de 0.99 ct", title: "Esmeralda Natural de 0.99 ct", desc: "" },
-  { id: "piedra-4", src: "/images/piedra-4.jpg", alt: "Esmeralda Natural de 1.04 ct", title: "Esmeralda Natural de 1.04 ct", desc: "" },
+  { id: "anillo-1", src: "/images/anillo-1.jpeg", alt: "Anillo de Oro Amarillo con Piedras Verdes", title: "Anillo de Oro Amarillo con Piedras Verdes", desc: "" },
+  { id: "anillo-2", src: "/images/anillo-2.jpeg", alt: "Anillo de Plata con Piedra Verde y Diamantes", title: "Anillo de Plata con Piedra Verde y Diamantes", desc: "" },
+  { id: "anillo-3", src: "/images/anillo-3.jpeg", alt: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", title: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", desc: "" },
+  { id: "anillo-4", src: "/images/anillo-4.jpeg", alt: "Anillo de Oro Amarillo con Piedras Verdes Variadas", title: "Anillo de Oro Amarillo con Piedras Verdes Variadas", desc: "" },
+  { id: "aretes-1", src: "/images/aretes-1.jpeg", alt: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", title: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", desc: "" },
+  { id: "aretes-2", src: "/images/aretes-2.jpeg", alt: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", title: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", desc: "" },
+  { id: "collar-1", src: "/images/collar-1.jpeg", alt: "Cruz de Esmeralda Natural en Oro Amarillo", title: "Cruz de Esmeralda Natural en Oro Amarillo", desc: "" },
+  { id: "collar-2", src: "/images/collar-2.jpeg", alt: "Cruz de Esmeraldas Naturales en Oro Amarillo", title: "Cruz de Esmeraldas Naturales en Oro Amarillo", desc: "" },
+  { id: "piedra-1", src: "/images/piedra-1.jpeg", alt: "Cristal Natural de Tourmalina Verde", title: "Cristal Natural de Tourmalina Verde", desc: "" },
+  { id: "piedra-2", src: "/images/piedra-2.jpeg", alt: "Esmeralda Natural de 0.92 ct", title: "Esmeralda Natural de 0.92 ct", desc: "" },
+  { id: "piedra-3", src: "/images/piedra-3.jpeg", alt: "Esmeralda Natural de 0.99 ct", title: "Esmeralda Natural de 0.99 ct", desc: "" },
+  { id: "piedra-4", src: "/images/piedra-4.jpeg", alt: "Esmeralda Natural de 1.04 ct", title: "Esmeralda Natural de 1.04 ct", desc: "" },
 ];
 
 export function GallerySection() {
