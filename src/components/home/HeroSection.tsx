@@ -102,7 +102,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1
           ref={titleRef}
-          className="font-heading text-6xl md:text-8xl tracking-[0.2em] text-content-primary uppercase mb-6"
+          className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-[0.2em] text-content-primary uppercase mb-6"
         >
           Hemenesy & Co.
         </h1>
