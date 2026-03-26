@@ -24,13 +24,13 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Hemenesy — Esmeraldas de Lujo",
+  title: "Hemenesy & Co. — Esmeraldas de Lujo",
   description:
-    "Descubre esmeraldas únicas y diseña tu joya perfecta con tecnología AI.",
+    "Alta joyería con esmeraldas colombianas de origen certificado. Piezas únicas diseñadas para perdurar.",
   openGraph: {
-    title: "Hemenesy — Esmeraldas de Lujo",
+    title: "Hemenesy & Co. — Esmeraldas de Lujo",
     description:
-      "Descubre esmeraldas únicas y diseña tu joya perfecta con tecnología AI.",
+      "Alta joyería con esmeraldas colombianas de origen certificado. Piezas únicas diseñadas para perdurar.",
     locale: "es_MX",
     type: "website",
   },

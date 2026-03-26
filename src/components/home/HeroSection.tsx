@@ -83,7 +83,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       className="relative h-screen overflow-hidden flex items-center justify-center"
-      aria-label="Hemenesy — Esmeraldas de lujo mexicanas"
+      aria-label="Hemenesy & Co. — Esmeraldas de lujo colombianas"
     >
       {/* Parallax bg — scale-110 evita bordes blancos en el extremo del parallax */}
       <div ref={bgRef} className="absolute inset-0 scale-110">
@@ -104,13 +104,13 @@ export function HeroSection() {
           ref={titleRef}
           className="font-heading text-6xl md:text-8xl tracking-[0.2em] text-content-primary uppercase mb-6"
         >
-          Hemenesy
+          Hemenesy & Co.
         </h1>
         <p
           ref={taglineRef}
           className="font-accent italic text-xl md:text-2xl text-content-secondary mb-10 font-light"
         >
-          Esmeraldas únicas, joyas para la eternidad
+          The Luxury of the Divine
         </p>
         <div ref={ctaRef} className="flex flex-col items-center">
           <div className="flex flex-row items-center justify-center gap-4 w-full max-w-sm">
@@ -130,7 +130,7 @@ export function HeroSection() {
           <button
             onClick={handleDescubrir}
             className="mt-16 flex flex-col items-center gap-2 group"
-            aria-label="Descubrir la historia de Hemenesy"
+            aria-label="Descubrir la historia de Hemenesy & Co."
           >
             <span className="font-accent text-sm tracking-[0.2em] text-content-secondary group-hover:text-content-primary transition-colors">
               Descubrir

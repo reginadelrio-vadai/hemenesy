@@ -8,33 +8,33 @@ gsap.registerPlugin(ScrollTrigger);
 const STAGES = [
   {
     num: "01",
-    title: "Consulta Inicial",
-    desc: "Conversamos contigo para entender tu visión. Cada joya Hemenesy nace de una historia personal y única.",
+    title: "Origen en la Mina",
+    desc: "Todo comienza en las montañas de Colombia, donde nacen algunas de las esmeraldas más extraordinarias del mundo. Allí inicia el recorrido de una gema marcada por su origen, rareza y carácter irrepetible.",
   },
   {
     num: "02",
-    title: "Diseño Conceptual",
-    desc: "Nuestros maestros joyeros diseñan la pieza a tu medida. Apruebas cada detalle antes de avanzar.",
+    title: "Selección de la Esmeralda",
+    desc: "Cada piedra es cuidadosamente evaluada por su color, pureza, transparencia y potencial. Solo aquellas que expresan verdadera belleza y singularidad continúan el camino hacia una creación excepcional.",
   },
   {
     num: "03",
-    title: "Selección de Gemas",
-    desc: "Viajamos a las minas colombianas para elegir tu esmeralda. Solo las de color, pureza y origen certificado.",
+    title: "Talla y Revelación",
+    desc: "La esmeralda en bruto se trabaja con precisión para revelar su luz, profundidad y equilibrio. La talla respeta la esencia natural de la gema y realza todo aquello que la hace única.",
   },
   {
     num: "04",
-    title: "Fabricación Artesanal",
-    desc: "Orfebres con décadas de experiencia trabajan el oro o platino a mano, con precisión micrométrica.",
+    title: "Certificación y Valoración",
+    desc: "Antes de convertirse en joya, la esmeralda es examinada y documentada para validar su autenticidad, sus características y su valor. Este proceso resguarda su procedencia y confirma su distinción.",
   },
   {
     num: "05",
-    title: "Control de Calidad",
-    desc: "Gemólogos certificados inspeccionan cada ángulo y faceta. La pieza no avanza hasta ser perfecta.",
+    title: "Creación de la Joya",
+    desc: "A partir de la gema elegida, concebimos una pieza a medida que une diseño, intención y oficio artesanal. Oro, platino y esmeralda se encuentran en una obra creada exclusivamente para su portador.",
   },
   {
     num: "06",
-    title: "Entrega Ceremonial",
-    desc: "Tu joya llega en un estuche de lujo con su historia documentada y certificados. Una pieza única, para siempre.",
+    title: "Entrega al Cliente",
+    desc: "La joya llega a tus manos como una creación única: una pieza de alta joyería concebida para ti, donde se unen origen, arte y significado en una forma destinada a permanecer.",
   },
 ];
 

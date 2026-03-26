@@ -76,10 +76,10 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="Hemenesy — Inicio"
+            aria-label="Hemenesy & Co. — Inicio"
             className="font-heading text-xl tracking-[0.3em] text-content-primary uppercase hover:text-brand-accent transition-colors duration-300"
           >
-            Hemenesy
+            Hemenesy & Co.
           </Link>
 
           {/* Desktop links */}

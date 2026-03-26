@@ -38,7 +38,7 @@ export function LoadingScreen() {
         ref={logoRef}
         className="font-heading text-3xl md:text-5xl tracking-[0.4em] uppercase text-content-primary"
       >
-        Hemenesy
+        Hemenesy & Co.
       </span>
     </div>
   );

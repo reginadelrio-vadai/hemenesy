@@ -15,24 +15,19 @@ export function Footer() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="Hemenesy — Inicio"
+            aria-label="Hemenesy & Co. — Inicio"
             className="font-heading text-lg tracking-[0.3em] uppercase text-content-primary hover:text-brand-accent transition-colors duration-300"
           >
-            Hemenesy
+            Hemenesy & Co.
           </Link>
-
-          {/* Ubicación */}
-          <p className="font-body text-sm text-content-secondary tracking-wide text-center">
-            Ciudad de México, México
-          </p>
 
           {/* Redes sociales */}
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com/hemenesy"
+              href="https://www.instagram.com/hemenesy_oficial?igsh=MTl4bjBvaWh4c2dpag=="
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Hemenesy en Instagram"
+              aria-label="Hemenesy & Co. en Instagram"
               className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-brand-accent transition-colors duration-300"
             >
               Instagram
@@ -42,7 +37,7 @@ export function Footer() {
               href="https://wa.me/525500000000"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Contactar Hemenesy por WhatsApp"
+              aria-label="Contactar Hemenesy & Co. por WhatsApp"
               className="font-body text-sm tracking-widest uppercase text-content-secondary hover:text-brand-accent transition-colors duration-300"
             >
               WhatsApp
@@ -53,7 +48,7 @@ export function Footer() {
         {/* Legal */}
         <div className="mt-8 pt-6 border-t border-line text-center">
           <p className="font-body text-xs text-content-secondary tracking-wide">
-            © {year} Hemenesy. Todos los derechos reservados.
+            © {year} Hemenesy & Co. Todos los derechos reservados.
           </p>
         </div>
       </div>

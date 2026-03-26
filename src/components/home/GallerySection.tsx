@@ -2,47 +2,22 @@
 import { useState } from "react";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { Lightbox } from "@/components/ui/Lightbox";
-import { PLACEHOLDERS } from "@/utils/placeholders";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { FADE_UP } from "@/utils/animations";
 
 const GALLERY = [
-  {
-    src: PLACEHOLDERS.emerald1,
-    alt: "Anillo esmeralda colombiana",
-    title: "Anillo Bogotá",
-    desc: "Esmeralda muzo 5.2ct · Oro 18k",
-  },
-  {
-    src: PLACEHOLDERS.jewelry1,
-    alt: "Collar de esmeralda en oro",
-    title: "Collar Cinturón",
-    desc: "3 esmeraldas · Pavé de diamantes",
-  },
-  {
-    src: PLACEHOLDERS.emerald2,
-    alt: "Esmeralda talla cojín",
-    title: "Solitario Cojín",
-    desc: "8.1ct · Corte cushion · Cert. GIA",
-  },
-  {
-    src: PLACEHOLDERS.jewelry2,
-    alt: "Aretes de esmeralda y diamantes",
-    title: "Aretes Dúo",
-    desc: "Esmeralda y diamante · Platino",
-  },
-  {
-    src: PLACEHOLDERS.emerald3,
-    alt: "Esmeralda piedra natural",
-    title: "Gema Origen",
-    desc: "En bruto · Sin tratamiento",
-  },
-  {
-    src: PLACEHOLDERS.vintage1,
-    alt: "Diseño vintage con esmeralda",
-    title: "Vintage Heritage",
-    desc: "Diseño art-déco · Colección 1975",
-  },
+  { id: "anillo-1", src: "/images/anillo-1.jpg", alt: "Anillo de Oro Amarillo con Piedras Verdes", title: "Anillo de Oro Amarillo con Piedras Verdes", desc: "" },
+  { id: "anillo-2", src: "/images/anillo-2.jpg", alt: "Anillo de Plata con Piedra Verde y Diamantes", title: "Anillo de Plata con Piedra Verde y Diamantes", desc: "" },
+  { id: "anillo-3", src: "/images/anillo-3.jpg", alt: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", title: "Anillo de Oro Amarillo con Piedra Verde y Halo de Diamantes", desc: "" },
+  { id: "anillo-4", src: "/images/anillo-4.jpg", alt: "Anillo de Oro Amarillo con Piedras Verdes Variadas", title: "Anillo de Oro Amarillo con Piedras Verdes Variadas", desc: "" },
+  { id: "aretes-1", src: "/images/aretes-1.jpg", alt: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", title: "Aretes de Oro Amarillo con Piedras Verdes y Diamantes", desc: "" },
+  { id: "aretes-2", src: "/images/aretes-2.jpg", alt: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", title: "Aretes de Oro Amarillo con Piedras Verdes en Forma de Corazón", desc: "" },
+  { id: "collar-1", src: "/images/collar-1.jpg", alt: "Cruz de Esmeralda Natural en Oro Amarillo", title: "Cruz de Esmeralda Natural en Oro Amarillo", desc: "" },
+  { id: "collar-2", src: "/images/collar-2.jpg", alt: "Cruz de Esmeraldas Naturales en Oro Amarillo", title: "Cruz de Esmeraldas Naturales en Oro Amarillo", desc: "" },
+  { id: "piedra-1", src: "/images/piedra-1.jpg", alt: "Cristal Natural de Tourmalina Verde", title: "Cristal Natural de Tourmalina Verde", desc: "" },
+  { id: "piedra-2", src: "/images/piedra-2.jpg", alt: "Esmeralda Natural de 0.92 ct", title: "Esmeralda Natural de 0.92 ct", desc: "" },
+  { id: "piedra-3", src: "/images/piedra-3.jpg", alt: "Esmeralda Natural de 0.99 ct", title: "Esmeralda Natural de 0.99 ct", desc: "" },
+  { id: "piedra-4", src: "/images/piedra-4.jpg", alt: "Esmeralda Natural de 1.04 ct", title: "Esmeralda Natural de 1.04 ct", desc: "" },
 ];
 
 export function GallerySection() {
@@ -53,7 +28,7 @@ export function GallerySection() {
     <section
       id="galeria"
       className="bg-surface-dark py-24 lg:py-32"
-      aria-label="Galería Hemenesy"
+      aria-label="Galería Hemenesy & Co."
     >
       <div className="max-w-content mx-auto px-6 lg:px-12">
         <div ref={titleRef} className="text-center mb-16">
@@ -72,7 +47,7 @@ export function GallerySection() {
         >
           {GALLERY.map((item, i) => (
             <GalleryItem
-              key={i}
+              key={item.id}
               item={item}
               onClick={() => setLightboxIndex(i)}
             />
@@ -121,9 +96,6 @@ function GalleryItem({
       <div className="absolute inset-0 bg-gradient-to-t from-brand-accent/80 via-brand-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-6">
         <p className="font-heading text-lg text-content-primary translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
           {item.title}
-        </p>
-        <p className="font-accent text-sm text-content-secondary font-light mt-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-          {item.desc}
         </p>
       </div>
     </div>
