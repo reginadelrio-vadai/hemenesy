@@ -58,13 +58,13 @@ function MilestoneLayoutA({
       </div>
 
       <div ref={photoRef} className="flex items-center justify-center p-8 lg:p-16">
-        <div className="relative w-full max-w-[420px] aspect-[3/4] border-[8px] border-brand-accent shadow-2xl rotate-[-1deg]">
+        <div className="relative w-full max-w-[420px] border-[8px] border-brand-accent shadow-2xl rotate-[-1deg]">
           <SafeImage
             src={milestone.photo}
             alt={milestone.photoAlt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 90vw, 45vw"
+            width={500}
+            height={600}
+            style={{ objectFit: "contain", width: "100%", height: "auto" }}
           />
         </div>
       </div>
@@ -148,8 +148,8 @@ function MilestoneLayoutC({
         </p>
       </div>
 
-      <div className="relative flex flex-col items-center order-1 lg:order-2 py-12 lg:py-20">
-        <div ref={photo1Ref} className="relative w-[60%] aspect-[3/4] z-10 shadow-2xl">
+      <div className="relative flex flex-col items-center order-1 lg:order-2 py-12 lg:py-20 -ml-10 lg:-ml-16">
+        <div ref={photo1Ref} className="relative w-[60%] aspect-[3/4] z-0 shadow-2xl">
           <SafeImage
             src={milestone.photos[0]}
             alt={milestone.photoAlts[0]}
@@ -160,7 +160,7 @@ function MilestoneLayoutC({
         </div>
         <div
           ref={photo2Ref}
-          className="relative w-[50%] aspect-[3/4] -mt-[25%] self-end mr-[5%] shadow-2xl"
+          className="relative w-[50%] aspect-[3/4] -mt-[25%] self-end mr-[5%] z-10 shadow-2xl"
         >
           <SafeImage
             src={milestone.photos[1]}
