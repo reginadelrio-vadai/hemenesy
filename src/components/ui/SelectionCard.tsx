@@ -20,7 +20,7 @@ export function SelectionCard({ label, image, selected, disabled, onClick }: Sel
         aria-pressed={selected}
         className={`
           relative aspect-[3/4] overflow-hidden rounded-lg cursor-pointer transition-all duration-300
-          ${selected ? "border-2 border-brand-accent opacity-100" : "border border-line opacity-70 hover:opacity-85"}
+          ${selected ? "border-2 border-brand-accent opacity-100" : "border border-line opacity-90 hover:opacity-100"}
           ${disabled ? "cursor-not-allowed" : ""}
         `.trim()}
       >
@@ -29,7 +29,7 @@ export function SelectionCard({ label, image, selected, disabled, onClick }: Sel
           alt={label}
           fill
           className={`object-cover transition-all duration-300 ${
-            selected ? "brightness-100" : "brightness-[0.7] hover:brightness-[0.85]"
+            selected ? "brightness-100" : "brightness-90 hover:brightness-100"
           }`}
           sizes="(max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
         />
