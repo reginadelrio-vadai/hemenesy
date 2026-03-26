@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { OdometerYear } from "@/components/home/OdometerYear";
 import { SafeImage } from "@/components/ui/SafeImage";
-import { PLACEHOLDERS } from "@/utils/placeholders";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { FADE_UP, FADE_IN } from "@/utils/animations";
 gsap.registerPlugin(ScrollTrigger);
@@ -256,20 +255,20 @@ export function HistorySection() {
   const milestones = {
     m1: { year: 1952, layout: "A" as const, title: "Los Orígenes",
       description: "Don Alejandro Hemenesy descubre su primera esmeralda colombiana en el mercado de Bogotá. Una piedra de 8.3 quilates que cambiaría el rumbo de su vida y el de tres generaciones.",
-      photo: PLACEHOLDERS.mine, photoAlt: "Mercado de esmeraldas en Bogotá, Colombia, 1952" },
+      photo: "/images/historia-1.png", photoAlt: "Los orígenes de Hemenesy, 1952" },
     m2: { year: 1975, layout: "B" as const, title: "La Primera Mina",
       description: "La familia Hemenesy adquiere su primera participación en una mina del Cinturón Esmeraldífero Occidental, garantizando el origen y trazabilidad de cada piedra.",
-      photo: PLACEHOLDERS.emerald1, photoAlt: "Primera mina de esmeraldas Hemenesy en Colombia, 1975" },
+      photo: "/images/historia-2.png", photoAlt: "La primera mina de esmeraldas, 1975" },
     m3: { year: 1993, layout: "C" as const, title: "Expansión",
       description: "Hemenesy abre su primer atelier en Ciudad de México y comienza la colaboración con maestros joyeros europeos, elevando cada pieza al nivel del lujo internacional.",
-      photos: [PLACEHOLDERS.emerald2, PLACEHOLDERS.vintage1] as [string, string],
-      photoAlts: ["Atelier Hemenesy Ciudad de México, 1993", "Colección de alta joyería vintage Hemenesy"] as [string, string] },
+      photos: ["/images/historia-3.png", "/images/historia-4.png"] as [string, string],
+      photoAlts: ["Expansión Hemenesy, atelier Ciudad de México 1993", "Colección de alta joyería Hemenesy 1993"] as [string, string] },
     m4: { year: 2010, layout: "A" as const, title: "Nueva Generación",
       description: "La tercera generación toma las riendas con una visión renovada: combinar la tradición gemológica con el diseño contemporáneo de lujo y los estándares internacionales más exigentes.",
-      photo: PLACEHOLDERS.jewelry1, photoAlt: "Nueva generación Hemenesy — atelier contemporáneo, 2010" },
+      photo: "/images/historia-5.png", photoAlt: "Nueva generación Hemenesy, 2010" },
     m5: { year: 2026, layout: "B" as const, title: "Hemenesy Hoy",
       description: "Con inteligencia artificial y los más altos estándares de la joyería internacional, Hemenesy lleva la experiencia del lujo gemológico a una nueva dimensión.",
-      photo: PLACEHOLDERS.jewelry2, photoAlt: "Hemenesy 2026 — joyería de lujo con diseño por IA" },
+      photo: "/images/historia-6.png", photoAlt: "Hemenesy hoy, 2026" },
   };
 
   const milestonesJSX = (
