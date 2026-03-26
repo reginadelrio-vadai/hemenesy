@@ -41,7 +41,7 @@ export function GallerySection() {
         </div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4"
           role="list"
           aria-label="Galería de joyas"
         >
@@ -89,12 +89,12 @@ function GalleryItem({
         alt={item.alt}
         fill
         className="object-cover transition-transform duration-700 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
       />
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-accent/80 via-brand-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-6">
-        <p className="font-heading text-lg text-content-primary translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+      <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-4">
+        <p className="font-heading text-sm text-black translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
           {item.title}
         </p>
       </div>
