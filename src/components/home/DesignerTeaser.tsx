@@ -11,8 +11,6 @@ export function DesignerTeaser() {
   const textRef = useScrollAnimation(SLIDE_LEFT);
   const imageRef = useScrollAnimation(SLIDE_RIGHT);
 
-  const ctaHref = user ? "/designer" : "/auth/login";
-  const ctaLabel = user ? "Comenzar diseño" : "Crear cuenta gratis";
 
   return (
     <section
