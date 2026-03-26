@@ -33,7 +33,7 @@ export function DesignerTeaser() {
           </p>
 
           <Link
-            href={!loading && user ? "/designer" : "/auth/login"}
+            href={!loading && user ? "/designer" : "/auth/register"}
             className="inline-block font-body text-sm tracking-widest uppercase bg-brand-accent text-surface-dark px-10 py-4 hover:brightness-110 transition-all duration-300"
           >
             {!loading && user ? "Comenzar diseño" : "Crear cuenta gratis"}
