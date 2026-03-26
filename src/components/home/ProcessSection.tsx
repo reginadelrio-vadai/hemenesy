@@ -170,7 +170,7 @@ export function ProcessSection() {
           trigger: el,
           start: "top center",
           onEnter: () => setActiveStep(i),
-          onEnterBack: () => setActiveStep(i === 0 ? 0 : i - 1),
+          onLeaveBack: () => setActiveStep(Math.max(0, i - 1)),
         });
       });
     }, sectionRef);
