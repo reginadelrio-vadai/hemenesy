@@ -90,10 +90,10 @@ function MilestoneLayoutB({
           src={milestone.photo}
           alt={milestone.photoAlt}
           fill
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[25%_center] lg:object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] lg:backdrop-blur-none lg:bg-black/50" />
       </div>
 
       <div className="relative z-10 min-h-screen flex flex-col justify-center items-center lg:items-end px-6 lg:px-16 py-20">
@@ -134,7 +134,7 @@ function MilestoneLayoutC({
     >
       <div
         ref={textRef}
-        className="flex flex-col justify-center p-8 lg:p-16 order-2 lg:order-1"
+        className="flex flex-col justify-center p-8 lg:p-16 order-1 lg:order-1"
       >
         <p className="font-body text-xs tracking-[0.3em] uppercase text-brand-accent mb-3">
           {milestone.year}
@@ -148,7 +148,7 @@ function MilestoneLayoutC({
         </p>
       </div>
 
-      <div className="relative w-full max-w-[500px] mx-auto order-1 lg:order-2 py-8 lg:py-20 px-6 lg:px-0 lg:min-h-[500px]">
+      <div className="relative w-full max-w-[500px] mx-auto order-2 lg:order-2 py-8 lg:py-20 px-6 lg:px-0 lg:min-h-[500px]">
         <div ref={photo1Ref} className="relative w-full lg:w-[65%] z-0 shadow-2xl border-2 border-white/30">
           <SafeImage
             src={milestone.photos[0]}
@@ -274,7 +274,7 @@ export function HistorySection() {
 
       {/* ── Mobile: sticky odometer bar + milestones ── */}
       <div className="lg:hidden">
-        <div className="sticky top-0 z-20 flex justify-center items-center bg-surface-dark/90 backdrop-blur-sm py-4">
+        <div className="sticky top-0 z-40 flex justify-center items-center bg-surface-dark/90 backdrop-blur-sm py-4">
           <OdometerYear year={currentYear} />
         </div>
         {milestonesJSX}
