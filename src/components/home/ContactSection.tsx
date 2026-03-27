@@ -211,11 +211,12 @@ export function ContactSection() {
               onClick={() => setSelectedType(card.value)}
               aria-pressed={selectedType === card.value}
               className={`
-                p-6 lg:p-8 border text-left transition-all duration-300 group
+                p-6 lg:p-8 border text-left transition-all duration-300 group cursor-pointer
+                hover:scale-[1.02] hover:-translate-y-1
                 ${
                   selectedType === card.value
                     ? "border-brand-accent bg-brand-accent/5"
-                    : "border-line hover:border-brand-accent"
+                    : "border-line hover:border-brand-accent hover:bg-white/[0.02]"
                 }
               `}
             >
@@ -234,6 +235,16 @@ export function ContactSection() {
               <p className="font-accent text-sm text-content-secondary font-light leading-relaxed">
                 {card.desc}
               </p>
+              <span className={`
+                inline-block mt-4 font-body text-xs tracking-widest uppercase transition-all duration-300
+                ${
+                  selectedType === card.value
+                    ? "text-brand-accent translate-x-1"
+                    : "text-content-secondary/60 group-hover:text-brand-accent group-hover:translate-x-1"
+                }
+              `}>
+                Seleccionar →
+              </span>
             </button>
           ))}
         </div>
