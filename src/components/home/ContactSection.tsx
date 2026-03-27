@@ -109,6 +109,17 @@ export function ContactSection() {
         duration: 0.5,
         ease: LUXURY.ease.transition,
         clearProps: "height",
+        onComplete: () => {
+          formContainerRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        },
+      });
+    } else if (selectedType && prevTypeRef.current && formContainerRef.current) {
+      formContainerRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
     prevTypeRef.current = selectedType;

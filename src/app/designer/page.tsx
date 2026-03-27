@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { useDesigner } from "@/hooks/useDesigner";
 import { useAuth } from "@/components/layout/AuthProvider";
@@ -135,6 +136,16 @@ export default function DesignerPage() {
 
   return (
     <div className="bg-surface-dark" style={{ display: "flex", flexDirection: "column", minHeight: "100svh" }}>
+      {/* Back to home */}
+      <div className="flex-shrink-0 flex items-center px-6 pt-5 pb-2">
+        <Link
+          href="/"
+          className="font-heading text-sm tracking-[0.2em] text-content-secondary hover:text-content-primary transition-colors"
+        >
+          ← HEMENESY & CO.
+        </Link>
+      </div>
+
       {/* Stepper header */}
       {showNav && (
         <div className="flex-shrink-0 flex justify-center pt-6 pb-4">
