@@ -112,7 +112,7 @@ export function ContactSection() {
         onComplete: () => {
           formContainerRef.current?.scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block: "nearest",
           });
         },
       });

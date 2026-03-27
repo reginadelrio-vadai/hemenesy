@@ -137,12 +137,12 @@ export default function DesignerPage() {
   return (
     <div className="bg-surface-dark" style={{ display: "flex", flexDirection: "column", minHeight: "100svh" }}>
       {/* Back to home */}
-      <div className="flex-shrink-0 flex items-center px-6 pt-5 pb-2">
+      <div className="flex-shrink-0 flex items-center px-6 pt-20 pb-2">
         <Link
           href="/"
-          className="font-heading text-sm tracking-[0.2em] text-content-secondary hover:text-content-primary transition-colors"
+          className="font-body text-xs tracking-widest uppercase text-content-secondary hover:text-brand-accent transition-colors"
         >
-          ← HEMENESY & CO.
+          ← Página principal
         </Link>
       </div>
 
