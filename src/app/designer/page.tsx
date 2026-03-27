@@ -1,9 +1,10 @@
 "use client";
-import { useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { useDesigner } from "@/hooks/useDesigner";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { LUXURY } from "@/utils/animations";
+import { AuthGate } from "@/components/designer/AuthGate";
 import { StepperDots } from "@/components/designer/StepperDots";
 import { DesignerWelcome } from "@/components/designer/DesignerWelcome";
 import { StepJewelryType } from "@/components/designer/StepJewelryType";
@@ -23,11 +24,25 @@ export default function DesignerPage() {
     submitGeneration, regenerate, modifyDesign, reset,
   } = useDesigner();
 
-  // Always start fresh on mount
+  const [showAuthGate, setShowAuthGate] = useState(false);
+
+  // Handle mount: restore from auth redirect or start fresh
   useEffect(() => {
-    reset();
+    const pendingGeneration = localStorage.getItem("hemenesy_auth_pending");
+    if (pendingGeneration === "true" && user) {
+      // Usuario volvió de auth con formulario pendiente — no resetear
+      localStorage.removeItem("hemenesy_auth_pending");
+      // El estado se restaura desde localStorage via useDesigner
+      // Avanzar al resumen (step 6) para que confirme y genere
+      goToStep(6);
+    } else if (!pendingGeneration) {
+      // Entrada normal — empezar de cero
+      reset();
+    }
+    // Si pendingGeneration existe pero user es null, no hacer nada aún
+    // (el AuthProvider está cargando, el user llegará en otro render)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   // Clear state if a different user logs in
   useEffect(() => {
@@ -98,6 +113,12 @@ export default function DesignerPage() {
 
   const handleNext = () => {
     if (step === 6) {
+      if (!user) {
+        // Usuario no autenticado — guardar flag y mostrar modal
+        localStorage.setItem("hemenesy_auth_pending", "true");
+        setShowAuthGate(true);
+        return;
+      }
       setEditMode(false);
       nextStep();
       submitGeneration();
@@ -223,6 +244,11 @@ export default function DesignerPage() {
             {step === 6 ? "Generar diseño →" : editMode ? "← Volver al resumen" : "Siguiente →"}
           </button>
         </div>
+      )}
+
+      {/* Auth gate modal */}
+      {showAuthGate && (
+        <AuthGate onClose={() => setShowAuthGate(false)} />
       )}
     </div>
   );

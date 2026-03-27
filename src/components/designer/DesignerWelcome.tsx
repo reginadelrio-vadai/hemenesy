@@ -57,7 +57,7 @@ export function DesignerWelcome({ onStart }: Props) {
         </div>
       ) : (
         <Button variant="primary" onClick={onStart} className="px-16">
-          Comenzar
+          Diseñar mi joya
         </Button>
       )}
     </div>

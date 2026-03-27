@@ -33,7 +33,7 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (
-    ["/designer", "/dashboard"].some((p) =>
+    ["/dashboard"].some((p) =>
       request.nextUrl.pathname.startsWith(p)
     ) &&
     !user
@@ -57,5 +57,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/designer/:path*", "/dashboard/:path*", "/auth/:path*"],
+  matcher: ["/dashboard/:path*", "/auth/:path*"],
 };
