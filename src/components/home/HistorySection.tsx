@@ -217,38 +217,25 @@ export function HistorySection() {
   const hito5Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const triggers = [
-      ScrollTrigger.create({
-        trigger: hito1Ref.current,
-        start: "top center",
-        onEnter: () => setCurrentYear(1952),
-        onEnterBack: () => setCurrentYear(1952),
-      }),
-      ScrollTrigger.create({
-        trigger: hito2Ref.current,
-        start: "top center",
-        onEnter: () => setCurrentYear(1975),
-        onEnterBack: () => setCurrentYear(1952),
-      }),
-      ScrollTrigger.create({
-        trigger: hito3Ref.current,
-        start: "top center",
-        onEnter: () => setCurrentYear(1993),
-        onEnterBack: () => setCurrentYear(1975),
-      }),
-      ScrollTrigger.create({
-        trigger: hito4Ref.current,
-        start: "top center",
-        onEnter: () => setCurrentYear(2010),
-        onEnterBack: () => setCurrentYear(1993),
-      }),
-      ScrollTrigger.create({
-        trigger: hito5Ref.current,
-        start: "top center",
-        onEnter: () => setCurrentYear(2026),
-        onEnterBack: () => setCurrentYear(2010),
-      }),
+    const hitoData: { ref: React.RefObject<HTMLDivElement>; year: number }[] = [
+      { ref: hito1Ref, year: 1952 },
+      { ref: hito2Ref, year: 1975 },
+      { ref: hito3Ref, year: 1993 },
+      { ref: hito4Ref, year: 2010 },
+      { ref: hito5Ref, year: 2026 },
     ];
+
+    const triggers = hitoData.map(({ ref, year }) =>
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: "top center",
+        end: "bottom center",
+        onToggle: (self) => {
+          if (self.isActive) setCurrentYear(year);
+        },
+      })
+    );
+
     return () => triggers.forEach((t) => t.kill());
   }, []);
 
