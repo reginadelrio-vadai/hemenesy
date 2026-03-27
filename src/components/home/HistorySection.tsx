@@ -57,8 +57,8 @@ function MilestoneLayoutA({
         </p>
       </div>
 
-      <div ref={photoRef} className="flex items-center justify-center p-8 lg:p-16">
-        <div className="relative w-full max-w-[420px] border-[8px] border-brand-accent shadow-2xl rotate-[-1deg]">
+      <div ref={photoRef} className="flex items-center justify-center px-10 py-8 lg:p-16">
+        <div className="relative w-full max-w-[300px] lg:max-w-[420px] border-[5px] lg:border-[8px] border-brand-accent shadow-2xl rotate-[-1deg]">
           <SafeImage
             src={milestone.photo}
             alt={milestone.photoAlt}
@@ -84,7 +84,7 @@ function MilestoneLayoutB({
   const textRef = useScrollAnimation(FADE_UP);
 
   return (
-    <div ref={elRef} className="min-h-screen relative bg-surface-dark" style={{ marginLeft: "calc(-280px - 2rem)", width: "100vw" }}>
+    <div ref={elRef} className="min-h-screen relative bg-surface-dark max-lg:!ml-0 max-lg:!w-full" style={{ marginLeft: "calc(-280px - 2rem)", width: "100vw" }}>
       <div className="absolute inset-0">
         <SafeImage
           src={milestone.photo}
@@ -96,15 +96,15 @@ function MilestoneLayoutB({
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="relative z-10 min-h-screen flex flex-col justify-center items-end px-8 lg:px-16 py-20">
-        <div ref={textRef} className="max-w-sm text-right">
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center lg:items-end px-6 lg:px-16 py-20">
+        <div ref={textRef} className="max-w-sm text-center lg:text-right">
           <p className="font-body text-xs tracking-[0.3em] uppercase text-brand-accent mb-3">
             {milestone.year}
           </p>
           <h3 className="font-accent italic text-3xl uppercase text-brand-accent mb-5">
             {milestone.title}
           </h3>
-          <div className="w-8 h-px bg-brand-accent ml-auto mb-6" />
+          <div className="w-8 h-px bg-brand-accent mx-auto lg:ml-auto lg:mr-0 mb-6" />
           <p className="font-accent text-lg text-white/80 leading-relaxed font-light">
             {milestone.description}
           </p>
@@ -148,8 +148,8 @@ function MilestoneLayoutC({
         </p>
       </div>
 
-      <div className="relative w-full max-w-[500px] mx-auto order-1 lg:order-2 py-12 lg:py-20" style={{ minHeight: "500px" }}>
-        <div ref={photo1Ref} className="relative w-[65%] z-0 shadow-2xl border-2 border-white/30">
+      <div className="relative w-full max-w-[500px] mx-auto order-1 lg:order-2 py-8 lg:py-20 px-6 lg:px-0 lg:min-h-[500px]">
+        <div ref={photo1Ref} className="relative w-full lg:w-[65%] z-0 shadow-2xl border-2 border-white/30">
           <SafeImage
             src={milestone.photos[0]}
             alt={milestone.photoAlts[0]}
@@ -160,7 +160,7 @@ function MilestoneLayoutC({
         </div>
         <div
           ref={photo2Ref}
-          className="relative w-[65%] -mt-[80px] ml-auto z-10 shadow-2xl border-2 border-white/30"
+          className="relative w-full lg:w-[65%] mt-4 lg:-mt-[80px] ml-0 lg:ml-auto z-10 shadow-2xl border-2 border-white/30"
         >
           <SafeImage
             src={milestone.photos[1]}
