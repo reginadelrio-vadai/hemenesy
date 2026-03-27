@@ -3,10 +3,7 @@ import Link from "next/link";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { SLIDE_LEFT, SLIDE_RIGHT } from "@/utils/animations";
-import { useAuth } from "@/components/layout/AuthProvider";
-
 export function DesignerTeaser() {
-  const { user, loading } = useAuth();
   const textRef = useScrollAnimation(SLIDE_LEFT);
   const imageRef = useScrollAnimation(SLIDE_RIGHT);
 
@@ -32,10 +29,10 @@ export function DesignerTeaser() {
           </p>
 
           <Link
-            href={!loading && user ? "/designer" : "/auth/register"}
+            href="/designer"
             className="inline-block font-body text-sm tracking-widest uppercase bg-brand-accent text-surface-dark px-10 py-4 hover:brightness-110 transition-all duration-300"
           >
-            {!loading && user ? "Comenzar diseño" : "Crear cuenta gratis"}
+            Diseñar mi joya
           </Link>
         </div>
 
