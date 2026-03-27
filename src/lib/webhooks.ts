@@ -18,3 +18,6 @@ export const webhookQuoteRequested = (d: Record<string, unknown>) =>
 
 export const webhookNewContact = (d: Record<string, unknown>) =>
   send(process.env.N8N_WEBHOOK_NEW_CONTACT!, d);
+
+export const webhookNewClient = (d: Record<string, unknown>) =>
+  send(process.env.N8N_WEBHOOK_NEW_CLIENT!, d);

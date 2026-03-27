@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Campos requeridos faltantes" }, { status: 400 });
 
     // RLS filtra automáticamente — solo ve diseños del usuario
-    const { data: design } = await supabase.from("designs").select("id, status").eq("id", designId).single();
+    const { data: design } = await supabase.from("designs").select("id, status, jewelry_type, design_style, metal, emerald_type, complementary_stones, engraving, additional_notes, image_url").eq("id", designId).single();
     if (!design) return NextResponse.json({ error: "Diseño no encontrado" }, { status: 404 });
     if (design.status === "quote_requested")
       return NextResponse.json({ error: "Ya solicitaste cotización para este diseño" }, { status: 409 });
@@ -60,6 +60,14 @@ export async function POST(request: Request) {
       designId,
       contactPreference,
       advisorNotes,
+      jewelryType: design?.jewelry_type,
+      designStyle: design?.design_style,
+      metal: design?.metal,
+      emeraldType: design?.emerald_type,
+      complementaryStones: design?.complementary_stones,
+      engraving: design?.engraving,
+      additionalNotes: design?.additional_notes,
+      imageUrl: design?.image_url,
     }).catch(console.error);
 
     return NextResponse.json({ success: true });

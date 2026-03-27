@@ -35,6 +35,14 @@ function RegisterForm() {
         options: { data: { full_name: fullName, phone } },
       });
       if (err) throw new Error(err.message);
+
+      // Notificar a N8N sobre el nuevo cliente
+      fetch("/api/auth/new-client", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, email, phone }),
+      }).catch(() => {}); // Fire and forget — no bloquear el registro si falla
+
       setSuccess(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error al registrarse");
