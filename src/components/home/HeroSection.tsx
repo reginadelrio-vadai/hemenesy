@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { LUXURY } from "@/utils/animations";
 gsap.registerPlugin(ScrollTrigger);
@@ -78,6 +79,7 @@ export function HeroSection() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+
   return (
     <section
       ref={sectionRef}
@@ -113,15 +115,15 @@ export function HeroSection() {
         </p>
         <div ref={ctaRef} className="flex flex-col items-center">
           <div className="flex flex-row items-center justify-center gap-4 w-full max-w-sm">
-            <button
-              onClick={() => handleScrollTo("disenar")}
-              className="flex-1 font-body text-sm tracking-widest uppercase border border-brand-accent text-brand-accent py-4 hover:bg-brand-accent hover:text-surface-dark transition-all duration-300"
+            <Link
+              href="/designer"
+              className="flex-1 text-center font-body text-sm font-semibold tracking-widest uppercase border-2 border-brand-accent text-brand-accent py-4 px-8 backdrop-blur-sm bg-black/20 hover:bg-brand-accent hover:text-surface-dark transition-all duration-300"
             >
               Diseñar
-            </button>
+            </Link>
             <button
               onClick={() => handleScrollTo("contacto")}
-              className="flex-1 font-body text-sm tracking-widest uppercase border border-brand-accent text-brand-accent py-4 hover:bg-brand-accent hover:text-surface-dark transition-all duration-300"
+              className="flex-1 font-body text-sm font-semibold tracking-widest uppercase border-2 border-brand-accent text-brand-accent py-4 px-8 backdrop-blur-sm bg-black/20 hover:bg-brand-accent hover:text-surface-dark transition-all duration-300"
             >
               Contacto
             </button>

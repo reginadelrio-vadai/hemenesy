@@ -15,14 +15,12 @@ export default function HomePage() {
         <ScrollHandler />
       </Suspense>
       <HeroSection />
-      <HistorySection />
+      <DesignerTeaser />
       <ProcessSection />
-      <GallerySection />
-      <CertificationsSection />
-      <div id="disenar">
-        <DesignerTeaser />
-      </div>
       <ContactSection />
+      <GallerySection />
+      <HistorySection />
+      <CertificationsSection />
     </>
   );
 }

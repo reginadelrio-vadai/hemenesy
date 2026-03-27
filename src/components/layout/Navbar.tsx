@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useAuth } from "@/components/layout/AuthProvider";
@@ -21,16 +21,7 @@ export function Navbar() {
   const navRef = useRef<HTMLElement>(null);
   const mobileLinksRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const pathname = usePathname();
 
-  const handleDesignarClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (pathname === "/") {
-      document.getElementById("disenar")?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push("/?section=disenar");
-    }
-  };
 
   useEffect(() => {
     const trigger = ScrollTrigger.create({
@@ -93,12 +84,12 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={handleDesignarClick}
+            <Link
+              href="/designer"
               className="font-body text-sm tracking-widest uppercase border border-brand-accent text-brand-accent px-5 py-2 hover:bg-brand-accent hover:text-surface-dark transition-all duration-300"
             >
               Diseñar
-            </button>
+            </Link>
 
             {!loading && user ? (
               <div className="flex items-center gap-3">
@@ -165,12 +156,13 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={(e) => { setMenuOpen(false); handleDesignarClick(e); }}
+            <Link
+              href="/designer"
+              onClick={() => setMenuOpen(false)}
               className="font-heading text-2xl tracking-widest uppercase text-brand-accent"
             >
               Diseñar
-            </button>
+            </Link>
             {!loading && user ? (
               <>
                 <Link
